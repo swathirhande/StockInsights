@@ -24,7 +24,7 @@ Stock Insights is an **advanced stock market analysis platform** built using **A
 
 ### **APIs & Tools:**  
 ✅ **Finnhub API** (Real-time stock market data)  
-✅ **Gemini AI** (AI-powered stock insights & recommendations)  
+✅ **Gemini AI** (AI-powered stock insights)  
 ✅ **Highcharts** (Interactive stock charts)  
 ✅ **Polygon.io** (Market & financial data)  
 ✅ **Axios** (Efficient data fetching)
@@ -40,7 +40,7 @@ Stock Insights is an **advanced stock market analysis platform** built using **A
   ✅ **Stock summary**  
   ✅ **Top news articles** (with links)  
   ✅ **Interactive stock charts**  
-  ✅ **AI-generated insights** powered by **Gemini AI**  
+  ✅ **Insights on Insider Sentiments, Recommendation Trends, and AI-Powered Insights powered by Gemini AI** 
 
 ### ⭐ **2. Watchlist (Favorites)**  
 - Users can **add stocks to their favorites**, stored in **MongoDB**.  
