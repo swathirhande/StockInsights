@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   
+  </head>
+<body>
+<nav class="navbar navbar-expand-lg ">
+  <div class="container-fluid">
+    <span class="navbar-text">Stock Search</span>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+ <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/search/home" routerLinkActive="active" ariaCurrentWhenActive="page">Search</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/watchlist" routerLinkActive="active" ariaCurrentWhenActive="page">Watchlist</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/portfolio" routerLinkActive="active" ariaCurrentWhenActive="page">Portfolio</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+</nav>
+  <router-outlet></router-outlet>
+  <footer class="footer">
+    <div class="container-fluid" id="footerContainer">
+      <span class="navbar-text">Powered by <a href="https://finnhub.io" target="_blank">Finnhub.io</a></span>
+    </div>
+  </footer>
+ 
+</body>
+</html>

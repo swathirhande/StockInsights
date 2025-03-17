@@ -1,0 +1,212 @@
+
+.container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .row {
+    width: 100%;
+  }
+
+  .card-header {
+    display: flex;
+    margin-top:0px;
+    margin-bottom: 0px;
+    align-items: center; 
+  }
+  
+  .card-header h5, .card-header p {
+    margin-top: 0px;
+    padding-top: 0px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
+  .card-header h5
+  {
+    margin-right: 10px; 
+  }
+  .card-header p
+  {
+     margin-top:3px;
+  }
+  .card-bottom {
+    border-top: 1px solid #cccccc; 
+    display: flex;
+    padding: 5px;
+    background-color: #f8f9fa;
+  }
+  .buyButton
+  {
+    margin-right: 8px;
+    margin-left: 5px;
+  }
+  .custom-col {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+  }
+  .card {
+    width: 100%; 
+    margin: 15px auto !important; 
+  }
+  
+  .card-body {
+    padding: 0px; 
+  }
+  .headingClass
+  {
+    padding: 3px !important;
+  }
+  .titleClass
+  {
+    margin-left: 5px;
+  }
+  .companyName
+  {
+    color: #6c757d;
+    font-size: 14px;
+  }
+  .buyButton , .sellButton
+  {
+    height: 30px;
+    font-size: 12px;
+    width: 50px;
+  }
+
+  .portfolioTitle ,.portfolioSubTitle  {
+    white-space: nowrap;
+   background-color: transparent;
+   border: none;
+  }
+
+  #portfolio-heading
+  {
+    padding: 0px; 
+    margin: 35px auto;
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
+
+  
+  #portfolio-sub-heading
+  {
+    padding: 0px; 
+    margin: 0px auto;
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
+  .cashDetailsContainer, .PortfolioTextContainer
+  {
+    padding-left: 0px !important;
+  }
+  .portfolioH
+  {
+    font-size: 24px;
+    padding-left: 16px;
+  }
+  .portfolioSubH
+  {
+    /*padding-left: 0px !important;*/
+    padding-left: 16px !important;
+    font-weight: 20px;
+    font-size: 16px;
+  }
+
+  .portfolioH, .portfolioSubH
+  {
+    color: black;
+  }
+
+.no-wrap {
+  white-space: nowrap;
+}
+.stylesDiv
+{
+  margin-left: 40px;
+}
+.styleOneDiv
+{
+  margin-left: 10px;
+}
+
+.no-portfolio-msg
+{
+  padding: 8px; 
+  height: 35px; 
+  margin: 0px auto;
+  font-size: 12px;
+  margin-top: 0px;
+  color: black;
+}
+
+.alert-box {
+  margin: 0 auto;
+  margin-top: 20px;
+  height: 40px;
+  padding: 8px;
+  font-size: 14px;
+  text-align: center;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.container-fluid .alert-dismissible .btn-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  padding: 13px;
+  font-size: 12px;
+}
+
+.text-blue
+{
+  color:#023e8a;
+}
+.modal-body p{
+  margin-bottom: 0px;
+}
+.modal-footer .btn-primary
+{
+    margin-top: -5px;
+    width:45px;
+    height: 30px; 
+    padding: 0.2rem 0.5rem; 
+    font-size: 14px; 
+}
+.modal-footer p{
+  margin-bottom: 0px;
+}
+.modal-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close {
+  border: none; 
+  background-color: transparent; 
+  text-decoration: underline; 
+  cursor: pointer;
+}
+
+.close span {
+  color: #0077b6; 
+}
+.msgerror
+{
+  font-size: 14px;
+}
+
+.lesser-red {
+  color: red;
+}
+
+.greater-green {
+  color: green;
+}
+
+.equal-black
+{
+  color:black;
+}

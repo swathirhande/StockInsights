@@ -1,0 +1,211 @@
+ <div class="container-fluid">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-9 px-0">
+        <div class="alert alert-success alert-dismissible fade show alert-box" role="alert" *ngIf="showNotification">
+          {{ notificationMessage }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-9 px-0">
+        <div class="alert alert-danger alert-dismissible fade show alert-box" role="alert" *ngIf="showSellNotification">
+          {{ notificationMessage }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="row">
+      <div class="col">
+      <div class="container PortfolioTextContainer">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-9">
+            <div class="alert alert-warning portfolioTitle" id="portfolio-heading" role="alert">
+              <h5 class="portfolioH">My Portfolio</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col text-center">
+        <div *ngIf="isLoading">
+              <div class="spinner-border text-blue" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col">
+        <div *ngIf="!isLoading">
+          <div class="container cashDetailsContainer">
+            <div class="row justify-content-center">
+              <div class="col-12 col-md-9">
+                <div class="alert alert-warning portfolioSubTitle" id="portfolio-sub-heading" role="alert">
+                  <h5 class="portfolioSubH">Money in Wallet: ${{ cashBalance | number: '1.2-2' }}</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+
+<div class="container">
+  <ng-container *ngIf="documents.length > 0; else noPortfolio">
+  <div class="row justify-content-center"> 
+    <ng-container *ngFor="let document of documents; let i = index ">
+      <div class="col-12 col-md-9 custom-col"> 
+        <div class="card m-1">
+          <div class="card-header headingClass" (click)="navigateTicker(document.tickerSymbol)">
+            <h5 class="titleClass"> {{ document.tickerSymbol }}</h5>
+            <p class="companyName"> {{ document.nameSymbol }} </p>
+        </div>
+
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-6">
+                  <div class="no-wrap styleOneDiv">Quantity:</div>
+                  <div class="no-wrap styleOneDiv">Avg. Cost / Share:</div>
+                  <div class="no-wrap styleOneDiv">Total Cost:</div>
+                </div>
+                <div class="col-6">
+                  <div class="no-wrap stylesDiv">{{ document.quantityDetails | number: '1.2-2' }}</div>
+                  <div class="no-wrap stylesDiv">{{ document.AverageCost | number: '1.2-2' }}</div>
+                  <div class="no-wrap stylesDiv">{{ document.Total | number: '1.2-2' }}</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-6">
+                  <div class="no-wrap styleOneDiv">Change:</div>
+                  <div class="no-wrap styleOneDiv">Current Price:</div>
+                  <div class="no-wrap styleOneDiv">Market Value:</div>
+                </div>
+                <div class="col-6">
+                  <div class="no-wrap stylesDiv" [ngClass]="{
+                    'lesser-red': (document.AverageCost - document.c) < 0,
+                    'greater-green': (document.AverageCost - document.c) > 0,
+                    'equal-black': (document.AverageCost - document.c) == 0
+                  }">
+                    <ng-container *ngIf="(document.AverageCost - document.c) < 0">
+                      <i class="bi bi-caret-down-fill" style="color: red;"></i>
+                    </ng-container>
+                    <ng-container *ngIf="(document.AverageCost - document.c) > 0">
+                      <i class="bi bi-caret-up-fill" style="color: green;"></i>
+                    </ng-container>
+                    <ng-container *ngIf="(document.AverageCost - document.c) == 0">
+                      <i style="color: black;"></i>
+                    </ng-container>
+                    {{ document.AverageCost - document.c | number: '1.2-2' }}
+
+                  </div>
+                  
+
+                  <div class="no-wrap stylesDiv" 
+                       [ngClass]="{'lesser-red': (document.AverageCost - document.c) < 0, 'greater-green': (document.AverageCost - document.c) > 0}">
+                    {{ document.c | number: '1.2-2' }}
+                  </div>
+                  <div class="no-wrap stylesDiv" 
+                       [ngClass]="{'lesser-red': (document.AverageCost - document.c) < 0, 'greater-green': (document.AverageCost - document.c) > 0}">
+                    {{ document.c * document.quantityDetails | number: '1.2-2' }}
+                  </div>
+                </div>
+                
+
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card-bottom">
+          <button type="button" class="btn btn-primary buyButton" data-bs-toggle="modal" data-bs-target="#buyModal" (click)="openModel(document)">Buy</button>
+          <button type="button" class="btn btn-danger sellButton" data-bs-toggle="modal" data-bs-target="#sellModal" (click)="openSellModel(document)">Sell</button>
+        </div>
+
+<div class="modal fade" id="buyModal" tabindex="-1" aria-labelledby="buyModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="buyModalLabel">{{ selectedDocument?.tickerSymbol }}</h5>
+        <button type="button" class="close" aria-label="Close" data-bs-dismiss="modal">
+          <span aria-hidden="true">&times;</span>
+      </button>
+      </div>
+      <div class="modal-body">
+        <p>Current Price: ${{ selectedDocument?.c | number: '1.2-2' }}</p>
+        <p>Money in Wallet: ${{ cashBalance | number: '1.2-2' }}</p>
+        <div>
+          <p>Quantity: <input type="number" [(ngModel)]="quantity" min="0" (ngModelChange)="updateTotal()"></p>
+          <p class="text-danger msgerror" *ngIf="totalCost > cashBalance">Not enough money in the wallet!</p>
+        </div>
+       
+      </div>
+      <div class="modal-footer">
+        <div class="d-flex justify-content-between w-100">
+        <p>Total: ${{ totalCost | number: '1.2-2' }}</p>
+        <button type="button" class="btn btn-primary btn-sm btn-success" [disabled]="!canBuy()" data-bs-dismiss="modal" (click)="buyStocks()">Buy</button>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="sellModal" tabindex="-1" aria-labelledby="sellModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="buyModalLabel">{{ selectedDocument?.tickerSymbol }}</h5>
+    <button type="button" class="close" aria-label="Close" data-bs-dismiss="modal">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+      </div>
+      <div class="modal-body">
+        <p>Current Price: ${{ selectedDocument?.c | number: '1.2-2' }}</p>
+        <p>Money in Wallet: ${{ cashBalance | number: '1.2-2' }}</p>
+        <div>
+          <p>Quantity: <input type="number" [(ngModel)]="quantity" min="0" (ngModelChange)="updateTotals()"></p>
+          <p class="text-danger msgerror" *ngIf="cantSell">You cannot sell the stocks that you don't have!</p>
+        </div>
+       
+      </div>
+      <div class="modal-footer">
+        <div class="d-flex justify-content-between w-100">
+        <p>Total: ${{ totalCost | number: '1.2-2' }}</p>
+        <button type="button" class="btn btn-primary btn-sm btn-success" [disabled]="!canSellButton" data-bs-dismiss="modal" (click)="sellStocks()">Sell</button>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+                </div>
+                </div>
+          </ng-container>
+        </div>
+        </ng-container>
+        <ng-template #noPortfolio>
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-md-9 col-12">
+                <div class="alert alert-warning text-center no-portfolio-msg" role="alert">
+                  Currently you don't have any stock.
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  

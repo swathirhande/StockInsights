@@ -1,0 +1,82 @@
+
+
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .row {
+    width: 100%;
+  }
+
+  .custom-col {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .card {
+    width: 100%; 
+    margin: 15px auto !important; 
+  }
+  
+  .card-body {
+    padding: 0px; 
+  }
+.customButtonClose
+  {
+    font-size: 5px;
+    margin: 10px;
+  }
+  .tickerDetails, .nameDetails
+  {
+    margin-left: 12px;
+  }
+  .nameDetails
+  {
+    margin-bottom: 19px;
+  }
+  .tickerDetails, .cDetails
+  {
+    font-size: 20px;
+  }
+.nameTag
+{
+  margin-bottom: 10px;
+}
+  .text-danger {
+    color: red;
+  }
+  
+  .text-success {
+    color: green;
+  }
+
+  .watchlistTitle {
+    white-space: nowrap;
+   background-color: transparent;
+   border: none;
+   padding-left: 6px;
+   margin-bottom: 0px !important;
+   margin-top: 20px;
+  }
+
+.watchlisth
+{
+  color: black;
+  font-size: 24px;
+  font-weight: normal;
+}
+  .no-watchlist-msg
+  {
+    /*padding: 8px; */
+   /* height: 35px; */
+    margin: 0px auto;
+    font-size: 12px;
+    color: black;
+  }
+
+  .text-blue
+  {
+    color:#023e8a;
+  }
